@@ -1,0 +1,382 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BC25CE10280C360E000C7152 /* LenguApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC25CE0F280C360E000C7152 /* LenguApp.swift */; };
+		BC25CE12280C360E000C7152 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC25CE11280C360E000C7152 /* ContentView.swift */; };
+		BC25CE14280C360E000C7152 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC25CE13280C360E000C7152 /* Assets.xcassets */; };
+		BC25CE17280C360E000C7152 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC25CE16280C360E000C7152 /* Preview Assets.xcassets */; };
+		BC25CE1E280C38EE000C7152 /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC25CE1D280C38EE000C7152 /* SpeechRecognizer.swift */; };
+		BC25CE20280C3927000C7152 /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC25CE1F280C3927000C7152 /* CameraService.swift */; };
+		BC25CE22280C399F000C7152 /* CameraService+Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC25CE21280C399F000C7152 /* CameraService+Enums.swift */; };
+		BC25CE24280C39CF000C7152 /* CameraService+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC25CE23280C39CF000C7152 /* CameraService+Extensions.swift */; };
+		BC25CE26280C3A3E000C7152 /* ImageResizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC25CE25280C3A3E000C7152 /* ImageResizer.swift */; };
+		BC25CE28280C3B05000C7152 /* PhotoCaptureProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC25CE27280C3B05000C7152 /* PhotoCaptureProcessor.swift */; };
+		BC25CE2A280C3FB8000C7152 /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC25CE29280C3FB8000C7152 /* CameraPreview.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		BC25CE0C280C360E000C7152 /* Lengu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lengu.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC25CE0F280C360E000C7152 /* LenguApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LenguApp.swift; sourceTree = "<group>"; };
+		BC25CE11280C360E000C7152 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BC25CE13280C360E000C7152 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BC25CE16280C360E000C7152 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BC25CE1D280C38EE000C7152 /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
+		BC25CE1F280C3927000C7152 /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
+		BC25CE21280C399F000C7152 /* CameraService+Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraService+Enums.swift"; sourceTree = "<group>"; };
+		BC25CE23280C39CF000C7152 /* CameraService+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraService+Extensions.swift"; sourceTree = "<group>"; };
+		BC25CE25280C3A3E000C7152 /* ImageResizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResizer.swift; sourceTree = "<group>"; };
+		BC25CE27280C3B05000C7152 /* PhotoCaptureProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCaptureProcessor.swift; sourceTree = "<group>"; };
+		BC25CE29280C3FB8000C7152 /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BC25CE09280C360E000C7152 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BC25CE03280C360E000C7152 = {
+			isa = PBXGroup;
+			children = (
+				BC25CE0E280C360E000C7152 /* Lengu */,
+				BC25CE0D280C360E000C7152 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BC25CE0D280C360E000C7152 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BC25CE0C280C360E000C7152 /* Lengu.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BC25CE0E280C360E000C7152 /* Lengu */ = {
+			isa = PBXGroup;
+			children = (
+				BC25CE0F280C360E000C7152 /* LenguApp.swift */,
+				BC25CE11280C360E000C7152 /* ContentView.swift */,
+				BC25CE1D280C38EE000C7152 /* SpeechRecognizer.swift */,
+				BC25CE1F280C3927000C7152 /* CameraService.swift */,
+				BC25CE21280C399F000C7152 /* CameraService+Enums.swift */,
+				BC25CE23280C39CF000C7152 /* CameraService+Extensions.swift */,
+				BC25CE25280C3A3E000C7152 /* ImageResizer.swift */,
+				BC25CE27280C3B05000C7152 /* PhotoCaptureProcessor.swift */,
+				BC25CE13280C360E000C7152 /* Assets.xcassets */,
+				BC25CE15280C360E000C7152 /* Preview Content */,
+				BC25CE29280C3FB8000C7152 /* CameraPreview.swift */,
+			);
+			path = Lengu;
+			sourceTree = "<group>";
+		};
+		BC25CE15280C360E000C7152 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				BC25CE16280C360E000C7152 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BC25CE0B280C360E000C7152 /* Lengu */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BC25CE1A280C360E000C7152 /* Build configuration list for PBXNativeTarget "Lengu" */;
+			buildPhases = (
+				BC25CE08280C360E000C7152 /* Sources */,
+				BC25CE09280C360E000C7152 /* Frameworks */,
+				BC25CE0A280C360E000C7152 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Lengu;
+			productName = Lengu;
+			productReference = BC25CE0C280C360E000C7152 /* Lengu.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BC25CE04280C360E000C7152 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					BC25CE0B280C360E000C7152 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+				};
+			};
+			buildConfigurationList = BC25CE07280C360E000C7152 /* Build configuration list for PBXProject "Lengu" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BC25CE03280C360E000C7152;
+			productRefGroup = BC25CE0D280C360E000C7152 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BC25CE0B280C360E000C7152 /* Lengu */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BC25CE0A280C360E000C7152 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC25CE17280C360E000C7152 /* Preview Assets.xcassets in Resources */,
+				BC25CE14280C360E000C7152 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BC25CE08280C360E000C7152 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC25CE22280C399F000C7152 /* CameraService+Enums.swift in Sources */,
+				BC25CE20280C3927000C7152 /* CameraService.swift in Sources */,
+				BC25CE26280C3A3E000C7152 /* ImageResizer.swift in Sources */,
+				BC25CE2A280C3FB8000C7152 /* CameraPreview.swift in Sources */,
+				BC25CE12280C360E000C7152 /* ContentView.swift in Sources */,
+				BC25CE28280C3B05000C7152 /* PhotoCaptureProcessor.swift in Sources */,
+				BC25CE10280C360E000C7152 /* LenguApp.swift in Sources */,
+				BC25CE24280C39CF000C7152 /* CameraService+Extensions.swift in Sources */,
+				BC25CE1E280C38EE000C7152 /* SpeechRecognizer.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		BC25CE18280C360E000C7152 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BC25CE19280C360E000C7152 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BC25CE1B280C360E000C7152 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Lengu/Preview Content\"";
+				DEVELOPMENT_TEAM = PL2TLU4TR8;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Lengu needs access to your camera to see the other person talking";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Audio is recorded with the micro to transcribe what you are saying, this data will not be stored afterwards.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Lengu captures photos and saves them into your photo library";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "The app uses speech recognition to know what you are saying.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = orgid.Lengu;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BC25CE1C280C360E000C7152 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Lengu/Preview Content\"";
+				DEVELOPMENT_TEAM = PL2TLU4TR8;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Lengu needs access to your camera to see the other person talking";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Audio is recorded with the micro to transcribe what you are saying, this data will not be stored afterwards.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Lengu captures photos and saves them into your photo library";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "The app uses speech recognition to know what you are saying.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = orgid.Lengu;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BC25CE07280C360E000C7152 /* Build configuration list for PBXProject "Lengu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC25CE18280C360E000C7152 /* Debug */,
+				BC25CE19280C360E000C7152 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BC25CE1A280C360E000C7152 /* Build configuration list for PBXNativeTarget "Lengu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC25CE1B280C360E000C7152 /* Debug */,
+				BC25CE1C280C360E000C7152 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BC25CE04280C360E000C7152 /* Project object */;
+}
