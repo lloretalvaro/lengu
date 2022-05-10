@@ -80,7 +80,6 @@ struct ContentView: View {
     
     @State var currentZoomFactor: CGFloat = 1.0
     
-    @StateObject var speechRecognizer = SpeechRecognizer()
     
     //
     @State private var isRecording = false
