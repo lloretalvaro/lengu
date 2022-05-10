@@ -8,6 +8,7 @@
 import SwiftUI
 import Combine
 import AVFoundation
+import Speech
 
 final class CameraModel: ObservableObject {
     private let service = CameraService()
@@ -81,6 +82,17 @@ struct ContentView: View {
     
     @StateObject var speechRecognizer = SpeechRecognizer()
     
+    //
+    @State private var isRecording = false
+    @State private var permissionStatus = SFSpeechRecognizerAuthorizationStatus.notDetermined
+    @State private var errorMessage = "For this functionality to work, you need to provide permission in your settings"
+    @State private var transcription = ""
+    @State private var task: SFSpeechRecognitionTask? = SFSpeechRecognitionTask()
+    @State private var audioEngine = AVAudioEngine()
+    @State private var request = SFSpeechAudioBufferRecognitionRequest()
+    //
+    
+    
     
     var captureButton: some View {
         Button(action: {
@@ -131,7 +143,7 @@ struct ContentView: View {
     var body: some View {
         GeometryReader { reader in
             ZStack {
-                Color.black.edgesIgnoringSafeArea(.all)
+                Color.yellow.edgesIgnoringSafeArea(.all)
                 
                 VStack {
                     
@@ -142,6 +154,24 @@ struct ContentView: View {
                             .font(.system(size: 20, weight: .medium, design: .default))
                     })
                     .accentColor(model.isFlashOn ? .yellow : .white)
+                    
+                    Button(LocalizedStringKey("Start speech recognition"), action: {
+                        Task
+                        {
+                            isRecording.toggle()
+                            if isRecording{
+                                simpleEndHaptic()
+                        
+                                
+                                startSpeechRecognization()
+                            }
+                            else{
+                                simpleBigHaptic()
+                                
+                               
+                                cancelSpeechRecognization()
+                            }
+                        }})
                     
                     CameraPreview(session: model.session)
                         .gesture(
@@ -182,15 +212,23 @@ struct ContentView: View {
                                     Color.black
                                 }
                             }
-                             */
-                           
-                
+                             
+                             
+                             
                              Text(speechRecognizer.transcript == "" ? "Say something!" : speechRecognizer.transcript)
                                  .padding()
                                  .onAppear{
                                      speechRecognizer.reset()
                                      speechRecognizer.transcribe()
                                  }
+                             */
+                           
+                
+                             Text(transcription == "" ? "Say something!" : transcription)
+                                 .padding()
+                                 
+                             
+                             
                              
                              
                         )
@@ -212,13 +250,112 @@ struct ContentView: View {
                     }
                     .padding(.horizontal, 20)
                 }
+            }.onAppear{requestPermission()}
+        }
+    }
+    
+    
+    //
+    //closing bracket for vard body some view
+    func speechRecognizer(_ speechRecognizer: SFSpeechRecognizer, availabilityDidChange available: Bool) {
+        if available {
+            print("Available")
+        } else {
+            print("Available")
+        }
+    }
+    
+    func requestPermission()  {
+        SFSpeechRecognizer.requestAuthorization { (authState) in
+            OperationQueue.main.addOperation {
+                if authState == .authorized {
+                    permissionStatus = .authorized
+                } else if authState == .denied {
+                    permissionStatus = .denied
+                } else if authState == .notDetermined {
+                    permissionStatus = .notDetermined
+                } else if authState == .restricted {
+                    permissionStatus = .restricted
+                }
             }
         }
     }
+    
+    func startSpeechRecognization(){
+        let node = audioEngine.inputNode
+        let recordingFormat = node.outputFormat(forBus: 0)
+        
+        node.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { (buffer, _) in
+            request.append(buffer)
+        }
+        
+        audioEngine.prepare()
+        do {
+            try audioEngine.start()
+        } catch let error {
+            errorMessage = "Error comes here for starting the audio listner =\(error.localizedDescription)"
+        }
+        
+        guard let myRecognization = SFSpeechRecognizer() else {
+            errorMessage = "Recognization is not allow on your local"
+            return
+        }
+        
+        print(myRecognization.isAvailable)
+        if !myRecognization.isAvailable {
+            errorMessage = "Recognization is not free right now, Please try again after some time."
+        }
+        
+        task = myRecognization.recognitionTask(with: request) { (response, error) in
+            guard let response = response else {
+                if error != nil {
+                    errorMessage = error?.localizedDescription ?? "For this functionality to work, you need to provide permission in your settings"
+                }else {
+                    errorMessage = "Problem in giving the response"
+                }
+                return
+            }
+            let message = response.bestTranscription.formattedString
+            transcription = message
+        }
+    }
+    
+    func cancelSpeechRecognization() {
+        task?.finish()
+        task?.cancel()
+        task = nil
+        
+        request.endAudio()
+        audioEngine.stop()
+        
+        //MARK: UPDATED
+        if audioEngine.inputNode.numberOfInputs > 0 {
+            audioEngine.inputNode.removeTap(onBus: 0)
+        }
+    }
+    //
+    
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
+}
+
+
+func simpleSuccessHaptic() {
+    let generator = UINotificationFeedbackGenerator()
+    generator.notificationOccurred(.success)
+}
+
+func simpleEndHaptic() {
+    let generator = UINotificationFeedbackGenerator()
+    generator.notificationOccurred(.warning)
+}
+
+func simpleBigHaptic() {
+    let generator = UINotificationFeedbackGenerator()
+    generator.notificationOccurred(.error)
 }

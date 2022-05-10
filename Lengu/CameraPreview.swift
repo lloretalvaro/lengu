@@ -27,6 +27,7 @@ struct CameraPreview: UIViewRepresentable {
         view.videoPreviewLayer.cornerRadius = 0
         view.videoPreviewLayer.session = session
         view.videoPreviewLayer.connection?.videoOrientation = .portrait
+        //view.videoPreviewLayer
 
         return view
     }

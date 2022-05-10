@@ -11,7 +11,6 @@
 		BC25CE12280C360E000C7152 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC25CE11280C360E000C7152 /* ContentView.swift */; };
 		BC25CE14280C360E000C7152 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC25CE13280C360E000C7152 /* Assets.xcassets */; };
 		BC25CE17280C360E000C7152 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC25CE16280C360E000C7152 /* Preview Assets.xcassets */; };
-		BC25CE1E280C38EE000C7152 /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC25CE1D280C38EE000C7152 /* SpeechRecognizer.swift */; };
 		BC25CE20280C3927000C7152 /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC25CE1F280C3927000C7152 /* CameraService.swift */; };
 		BC25CE22280C399F000C7152 /* CameraService+Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC25CE21280C399F000C7152 /* CameraService+Enums.swift */; };
 		BC25CE24280C39CF000C7152 /* CameraService+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC25CE23280C39CF000C7152 /* CameraService+Extensions.swift */; };
@@ -26,7 +25,6 @@
 		BC25CE11280C360E000C7152 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BC25CE13280C360E000C7152 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BC25CE16280C360E000C7152 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		BC25CE1D280C38EE000C7152 /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
 		BC25CE1F280C3927000C7152 /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
 		BC25CE21280C399F000C7152 /* CameraService+Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraService+Enums.swift"; sourceTree = "<group>"; };
 		BC25CE23280C39CF000C7152 /* CameraService+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraService+Extensions.swift"; sourceTree = "<group>"; };
@@ -67,7 +65,6 @@
 			children = (
 				BC25CE0F280C360E000C7152 /* LenguApp.swift */,
 				BC25CE11280C360E000C7152 /* ContentView.swift */,
-				BC25CE1D280C38EE000C7152 /* SpeechRecognizer.swift */,
 				BC25CE1F280C3927000C7152 /* CameraService.swift */,
 				BC25CE21280C399F000C7152 /* CameraService+Enums.swift */,
 				BC25CE23280C39CF000C7152 /* CameraService+Extensions.swift */,
@@ -166,7 +163,6 @@
 				BC25CE28280C3B05000C7152 /* PhotoCaptureProcessor.swift in Sources */,
 				BC25CE10280C360E000C7152 /* LenguApp.swift in Sources */,
 				BC25CE24280C39CF000C7152 /* CameraService+Extensions.swift in Sources */,
-				BC25CE1E280C38EE000C7152 /* SpeechRecognizer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
