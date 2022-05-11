@@ -12,10 +12,7 @@
 		BC25CE14280C360E000C7152 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC25CE13280C360E000C7152 /* Assets.xcassets */; };
 		BC25CE17280C360E000C7152 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC25CE16280C360E000C7152 /* Preview Assets.xcassets */; };
 		BC25CE20280C3927000C7152 /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC25CE1F280C3927000C7152 /* CameraService.swift */; };
-		BC25CE22280C399F000C7152 /* CameraService+Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC25CE21280C399F000C7152 /* CameraService+Enums.swift */; };
 		BC25CE24280C39CF000C7152 /* CameraService+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC25CE23280C39CF000C7152 /* CameraService+Extensions.swift */; };
-		BC25CE26280C3A3E000C7152 /* ImageResizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC25CE25280C3A3E000C7152 /* ImageResizer.swift */; };
-		BC25CE28280C3B05000C7152 /* PhotoCaptureProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC25CE27280C3B05000C7152 /* PhotoCaptureProcessor.swift */; };
 		BC25CE2A280C3FB8000C7152 /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC25CE29280C3FB8000C7152 /* CameraPreview.swift */; };
 /* End PBXBuildFile section */
 
@@ -26,10 +23,7 @@
 		BC25CE13280C360E000C7152 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BC25CE16280C360E000C7152 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BC25CE1F280C3927000C7152 /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
-		BC25CE21280C399F000C7152 /* CameraService+Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraService+Enums.swift"; sourceTree = "<group>"; };
 		BC25CE23280C39CF000C7152 /* CameraService+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraService+Extensions.swift"; sourceTree = "<group>"; };
-		BC25CE25280C3A3E000C7152 /* ImageResizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResizer.swift; sourceTree = "<group>"; };
-		BC25CE27280C3B05000C7152 /* PhotoCaptureProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCaptureProcessor.swift; sourceTree = "<group>"; };
 		BC25CE29280C3FB8000C7152 /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,10 +60,7 @@
 				BC25CE0F280C360E000C7152 /* LenguApp.swift */,
 				BC25CE11280C360E000C7152 /* ContentView.swift */,
 				BC25CE1F280C3927000C7152 /* CameraService.swift */,
-				BC25CE21280C399F000C7152 /* CameraService+Enums.swift */,
 				BC25CE23280C39CF000C7152 /* CameraService+Extensions.swift */,
-				BC25CE25280C3A3E000C7152 /* ImageResizer.swift */,
-				BC25CE27280C3B05000C7152 /* PhotoCaptureProcessor.swift */,
 				BC25CE13280C360E000C7152 /* Assets.xcassets */,
 				BC25CE15280C360E000C7152 /* Preview Content */,
 				BC25CE29280C3FB8000C7152 /* CameraPreview.swift */,
@@ -155,12 +146,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC25CE22280C399F000C7152 /* CameraService+Enums.swift in Sources */,
 				BC25CE20280C3927000C7152 /* CameraService.swift in Sources */,
-				BC25CE26280C3A3E000C7152 /* ImageResizer.swift in Sources */,
 				BC25CE2A280C3FB8000C7152 /* CameraPreview.swift in Sources */,
 				BC25CE12280C360E000C7152 /* ContentView.swift in Sources */,
-				BC25CE28280C3B05000C7152 /* PhotoCaptureProcessor.swift in Sources */,
 				BC25CE10280C360E000C7152 /* LenguApp.swift in Sources */,
 				BC25CE24280C39CF000C7152 /* CameraService+Extensions.swift in Sources */,
 			);

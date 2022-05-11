@@ -41,22 +41,6 @@ public struct AlertError {
     }
 }
 
-extension Photo {
-    public var compressedData: Data? {
-        ImageResizer(targetWidth: 800).resize(data: originalData)?.jpegData(compressionQuality: 0.5)
-    }
-    public var thumbnailData: Data? {
-        ImageResizer(targetWidth: 100).resize(data: originalData)?.jpegData(compressionQuality: 0.5)
-    }
-    public var thumbnailImage: UIImage? {
-        guard let data = thumbnailData else { return nil }
-        return UIImage(data: data)
-    }
-    public var image: UIImage? {
-        guard let data = compressedData else { return nil }
-        return UIImage(data: data)
-    }
-}
 
 public class CameraService {
     typealias PhotoCaptureSessionID = String
@@ -90,6 +74,12 @@ public class CameraService {
     var isSessionRunning = false
 //    12
     var isConfigured = false
+    
+    enum SessionSetupResult {
+        case success
+        case notAuthorized
+        case configurationFailed
+    }
 //    13
     var setupResult: SessionSetupResult = .success
 //    14
@@ -105,7 +95,7 @@ public class CameraService {
     
     private let photoOutput = AVCapturePhotoOutput()
     
-    private var inProgressPhotoCaptureDelegates = [Int64: PhotoCaptureProcessor]()
+   
     
     // MARK: KVO and Notifications Properties
     
@@ -435,42 +425,7 @@ public class CameraService {
                 
                 photoSettings.photoQualityPrioritization = .quality
                 
-                let photoCaptureProcessor = PhotoCaptureProcessor(with: photoSettings, willCapturePhotoAnimation: { [weak self] in
-                    // Tells the UI to flash the screen to signal that Lengu took a photo.
-                    DispatchQueue.main.async {
-                        self?.willCapturePhoto = true
-                    }
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
-                        self?.willCapturePhoto = false
-                    }
-                    
-                }, completionHandler: { [weak self] (photoCaptureProcessor) in
-                    // When the capture is complete, remove a reference to the photo capture delegate so it can be deallocated.
-                    if let data = photoCaptureProcessor.photoData {
-                        self?.photo = Photo(originalData: data)
-                        print("passing photo")
-                    } else {
-                        print("No photo data")
-                    }
-                    
-                    self?.isCameraButtonDisabled = false
-                    
-                    self?.sessionQueue.async {
-                        self?.inProgressPhotoCaptureDelegates[photoCaptureProcessor.requestedPhotoSettings.uniqueID] = nil
-                    }
-                }, photoProcessingHandler: { [weak self] animate in
-                    // Animates a spinner while photo is processing
-                    if animate {
-                        self?.shouldShowSpinner = true
-                    } else {
-                        self?.shouldShowSpinner = false
-                    }
-                })
                 
-                // The photo output holds a weak reference to the photo capture delegate and stores it in an array to maintain a strong reference.
-                self.inProgressPhotoCaptureDelegates[photoCaptureProcessor.requestedPhotoSettings.uniqueID] = photoCaptureProcessor
-                self.photoOutput.capturePhoto(with: photoSettings, delegate: photoCaptureProcessor)
             }
         }
     }

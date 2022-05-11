@@ -108,23 +108,7 @@ struct ContentView: View {
         })
     }
     
-    var capturedPhotoThumbnail: some View {
-        Group {
-            if model.photo != nil {
-                Image(uiImage: model.photo.image!)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 60, height: 60)
-                    .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-                    .animation(.spring())
-                
-            } else {
-                RoundedRectangle(cornerRadius: 10)
-                    .frame(width: 60, height: 60, alignment: .center)
-                    .foregroundColor(.black)
-            }
-        }
-    }
+    
     
     var flipCameraButton: some View {
         Button(action: {
@@ -235,7 +219,6 @@ struct ContentView: View {
                     
                     
                     HStack {
-                        capturedPhotoThumbnail
                         
                         Spacer()
                         
