@@ -186,17 +186,10 @@ struct ContentView: View {
                             //Parece que lo que sea que ponga encima del Overlay
                             //  se pondra por encima de la vista de la camara,
                             //  si pongo el cachito de codigo del speech recognition
-                            //  aqui funciona bien, para eso antes borrar el Group{} de abajo
+                            //  aqui funciona bien
                             /**
                              
-                             
-                            Group {
-                                if model.willCapturePhoto {
-                                    Color.black
-                                }
-                            }
-                             
-                             
+                            Old way to do speech recogn
                              
                              Text(speechRecognizer.transcript == "" ? "Say something!" : speechRecognizer.transcript)
                                  .padding()
@@ -210,9 +203,6 @@ struct ContentView: View {
                              Text(transcription == "" ? "Say something!" : transcription)
                                  .padding()
                                  
-                             
-                             
-                             
                              
                         )
                         .animation(.easeInOut)
