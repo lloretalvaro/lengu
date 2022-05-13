@@ -13,13 +13,7 @@ import Speech
 final class CameraModel: ObservableObject {
     private let service = CameraService()
     
-    @Published var photo: Photo!
-    
     @Published var showAlertError = false
-    
-    @Published var isFlashOn = false
-    
-    @Published var willCapturePhoto = false
     
     var alertError: AlertError!
     
@@ -30,36 +24,17 @@ final class CameraModel: ObservableObject {
     init() {
         self.session = service.session
         
-        service.$photo.sink { [weak self] (photo) in
-            guard let pic = photo else { return }
-            self?.photo = pic
-        }
-        .store(in: &self.subscriptions)
-        
         service.$shouldShowAlertView.sink { [weak self] (val) in
             self?.alertError = self?.service.alertError
             self?.showAlertError = val
         }
         .store(in: &self.subscriptions)
         
-        service.$flashMode.sink { [weak self] (mode) in
-            self?.isFlashOn = mode == .on
-        }
-        .store(in: &self.subscriptions)
-        
-        service.$willCapturePhoto.sink { [weak self] (val) in
-            self?.willCapturePhoto = val
-        }
-        .store(in: &self.subscriptions)
     }
     
     func configure() {
         service.checkForPermissions()
         service.configure()
-    }
-    
-    func capturePhoto() {
-        service.capturePhoto()
     }
     
     func flipCamera() {
@@ -70,9 +45,7 @@ final class CameraModel: ObservableObject {
         service.set(zoom: factor)
     }
     
-    func switchFlash() {
-        service.flashMode = service.flashMode == .on ? .off : .on
-    }
+   
 }
 
 struct ContentView: View {
@@ -95,7 +68,7 @@ struct ContentView: View {
     
     var captureButton: some View {
         Button(action: {
-            model.capturePhoto()
+            
         }, label: {
             Circle()
                 .foregroundColor(.white)
@@ -131,30 +104,54 @@ struct ContentView: View {
                 VStack {
                     
                     Button(action: {
-                        model.switchFlash()
-                    }, label: {
-                        Image(systemName: model.isFlashOn ? "bolt.fill" : "bolt.slash.fill")
-                            .font(.system(size: 20, weight: .medium, design: .default))
-                    })
-                    .accentColor(model.isFlashOn ? .yellow : .white)
-                    
-                    Button(LocalizedStringKey("Start speech recognition"), action: {
                         Task
                         {
                             isRecording.toggle()
                             if isRecording{
+                                print("isRecording is true")
                                 simpleEndHaptic()
                         
-                                
                                 startSpeechRecognization()
-                            }
-                            else{
+                                
+                            }else{
+                                print("isRecording is false")
                                 simpleBigHaptic()
                                 
-                               
                                 cancelSpeechRecognization()
                             }
-                        }})
+                        }
+                    }, label: {
+                        Rectangle()
+                            .foregroundColor(Color.gray.opacity(0.2))
+                            .frame(width: 160, height: 45, alignment: .center)
+                            .cornerRadius(5)
+                            .overlay(
+                                HStack {
+                                    
+                                    Text(isRecording ? "Press to finish" : "Press to start")
+                                    Image(systemName: "person.wave.2.fill")
+                                        .foregroundColor(.white)
+                                    
+                                }
+                            )
+                    })
+                    
+                    Button(action: {
+                        transcription = ""
+                    }, label: {
+                        Rectangle()
+                            .foregroundColor(Color.gray.opacity(0.2))
+                            .frame(width: 120, height: 45, alignment: .center)
+                            .cornerRadius(5)
+                            .overlay(
+                                HStack {
+                                    Text("Clear text")
+                                    Image(systemName: "trash.fill")
+                                        .foregroundColor(.white)
+                                }
+                            )
+                    })
+                    
                     
                     CameraPreview(session: model.session)
                         .gesture(
@@ -215,9 +212,11 @@ struct ContentView: View {
                         captureButton
                         
                         Spacer()
+
                         
                         flipCameraButton
-                        
+                        Spacer()
+
                         
                     }
                     .padding(.horizontal, 20)
@@ -273,7 +272,6 @@ struct ContentView: View {
             return
         }
         
-        print(myRecognization.isAvailable)
         if !myRecognization.isAvailable {
             errorMessage = "Recognization is not free right now, Please try again after some time."
         }
@@ -293,6 +291,8 @@ struct ContentView: View {
     }
     
     func cancelSpeechRecognization() {
+        print("llego al cancel")
+        
         task?.finish()
         task?.cancel()
         task = nil
