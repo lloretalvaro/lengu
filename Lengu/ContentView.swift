@@ -104,6 +104,23 @@ struct ContentView: View {
                 VStack {
                     
                     Button(action: {
+                        transcription = ""
+                    }, label: {
+                        Rectangle()
+                            .foregroundColor(Color.gray.opacity(0.2))
+                            .frame(width: 120, height: 45, alignment: .center)
+                            .cornerRadius(5)
+                            .overlay(
+                                HStack {
+                                    Text("Clear text")
+                                    Image(systemName: "trash.fill")
+                                        .foregroundColor(.white)
+                                }
+                            )
+                    })
+                    
+                    
+                    Button(action: {
                         Task
                         {
                             isRecording.toggle()
@@ -132,22 +149,6 @@ struct ContentView: View {
                                     Image(systemName: "person.wave.2.fill")
                                         .foregroundColor(.white)
                                     
-                                }
-                            )
-                    })
-                    
-                    Button(action: {
-                        transcription = ""
-                    }, label: {
-                        Rectangle()
-                            .foregroundColor(Color.gray.opacity(0.2))
-                            .frame(width: 120, height: 45, alignment: .center)
-                            .cornerRadius(5)
-                            .overlay(
-                                HStack {
-                                    Text("Clear text")
-                                    Image(systemName: "trash.fill")
-                                        .foregroundColor(.white)
                                 }
                             )
                     })
@@ -197,7 +198,7 @@ struct ContentView: View {
                              */
                            
                 
-                             Text(transcription == "" ? "Say something!" : transcription)
+                             Text(transcription)
                                  .padding()
                                  
                              
@@ -252,6 +253,23 @@ struct ContentView: View {
         }
     }
     
+    // He creado esta funcion para probar que se ejecutara
+    // de forma constante al message pillado por el speech recognition
+    // por lo que la funcion que haga la traduccion se puede utilizar de
+    // la misma manera en startSpeechRecognization()
+    func doSomethingWithText(text: String) -> String {
+        var text_output: String = text
+        if text.contains("a"){
+            text_output = text_output + "ONEPIECE"
+        }
+        
+        if text.contains("u"){
+            text_output = text_output + "YEAH"
+        }
+        
+        return text_output
+    }
+    
     func startSpeechRecognization(){
         let node = audioEngine.inputNode
         let recordingFormat = node.outputFormat(forBus: 0)
@@ -286,7 +304,7 @@ struct ContentView: View {
                 return
             }
             let message = response.bestTranscription.formattedString
-            transcription = message
+            transcription = doSomethingWithText(text: message)
         }
     }
     
