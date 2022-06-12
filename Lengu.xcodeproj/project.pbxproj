@@ -14,6 +14,7 @@
 		BC25CE20280C3927000C7152 /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC25CE1F280C3927000C7152 /* CameraService.swift */; };
 		BC25CE24280C39CF000C7152 /* CameraService+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC25CE23280C39CF000C7152 /* CameraService+Extensions.swift */; };
 		BC25CE2A280C3FB8000C7152 /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC25CE29280C3FB8000C7152 /* CameraPreview.swift */; };
+		BC8E33B1285690AB000A91FE /* TranslationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E33B0285690AB000A91FE /* TranslationService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		BC25CE1F280C3927000C7152 /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
 		BC25CE23280C39CF000C7152 /* CameraService+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraService+Extensions.swift"; sourceTree = "<group>"; };
 		BC25CE29280C3FB8000C7152 /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
+		BC8E33B0285690AB000A91FE /* TranslationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				BC25CE1F280C3927000C7152 /* CameraService.swift */,
 				BC25CE23280C39CF000C7152 /* CameraService+Extensions.swift */,
 				BC25CE13280C360E000C7152 /* Assets.xcassets */,
+				BC8E33B0285690AB000A91FE /* TranslationService.swift */,
 				BC25CE15280C360E000C7152 /* Preview Content */,
 				BC25CE29280C3FB8000C7152 /* CameraPreview.swift */,
 			);
@@ -151,6 +154,7 @@
 				BC25CE12280C360E000C7152 /* ContentView.swift in Sources */,
 				BC25CE10280C360E000C7152 /* LenguApp.swift in Sources */,
 				BC25CE24280C39CF000C7152 /* CameraService+Extensions.swift in Sources */,
+				BC8E33B1285690AB000A91FE /* TranslationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
