@@ -182,20 +182,7 @@ struct ContentView: View {
                         })
                         .overlay(
                             //Parece que lo que sea que ponga encima del Overlay
-                            //  se pondra por encima de la vista de la camara,
-                            //  si pongo el cachito de codigo del speech recognition
-                            //  aqui funciona bien
-                            /**
-                             
-                            Old way to do speech recogn
-                             
-                             Text(speechRecognizer.transcript == "" ? "Say something!" : speechRecognizer.transcript)
-                                 .padding()
-                                 .onAppear{
-                                     speechRecognizer.reset()
-                                     speechRecognizer.transcribe()
-                                 }
-                             */
+                            //  se pondra por encima de la vista de la camara
                            
                 
                              Text(transcription)
