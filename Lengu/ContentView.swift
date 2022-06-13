@@ -124,15 +124,11 @@ struct ContentView: View {
                         {
                             isRecording.toggle()
                             if isRecording{
-                                print("isRecording is true")
                                 simpleEndHaptic()
-                        
                                 startSpeechRecognization()
                                 
                             }else{
-                                print("isRecording is false")
                                 simpleBigHaptic()
-                                
                                 cancelSpeechRecognization()
                             }
                         }
@@ -184,11 +180,9 @@ struct ContentView: View {
                             //Parece que lo que sea que ponga encima del Overlay
                             //  se pondra por encima de la vista de la camara
                            
-                
                              Text(transcription)
                                  .padding()
                                  
-                             
                         )
                         .animation(.easeInOut)
                     
@@ -215,14 +209,6 @@ struct ContentView: View {
     
     
     //
-    //closing bracket for vard body some view
-    func speechRecognizer(_ speechRecognizer: SFSpeechRecognizer, availabilityDidChange available: Bool) {
-        if available {
-            print("Available")
-        } else {
-            print("Not available")
-        }
-    }
     
     func requestPermission()  {
         SFSpeechRecognizer.requestAuthorization { (authState) in
@@ -252,25 +238,25 @@ struct ContentView: View {
         audioEngine.prepare()
         do {
             try audioEngine.start()
-        } catch let error {
-            errorMessage = "Error comes here for starting the audio listner =\(error.localizedDescription)"
+        } catch {
+            errorMessage = "Error starting the audio engine."
         }
         
         guard let myRecognization = SFSpeechRecognizer() else {
-            errorMessage = "Recognization is not allow on your local"
+            errorMessage = "Recognition is not allowed on your local."
             return
         }
         
         if !myRecognization.isAvailable {
-            errorMessage = "Recognization is not free right now, Please try again after some time."
+            errorMessage = "Recognition is not available right now, Please try again after some time."
         }
         
         task = myRecognization.recognitionTask(with: request) { (response, error) in
             guard let response = response else {
                 if error != nil {
-                    errorMessage = error?.localizedDescription ?? "For this functionality to work, you need to provide permission in your settings"
+                    errorMessage = "For this functionality to work, you need to provide permission in your settings."
                 }else {
-                    errorMessage = "Problem in giving the response"
+                    errorMessage = "Problem in giving the response."
                 }
                 return
             }
@@ -280,8 +266,6 @@ struct ContentView: View {
     }
     
     func cancelSpeechRecognization() {
-        print("llego al cancel")
-        
         task?.finish()
         task?.cancel()
         task = nil
@@ -289,7 +273,6 @@ struct ContentView: View {
         request.endAudio()
         audioEngine.stop()
         
-        //MARK: UPDATED
         if audioEngine.inputNode.numberOfInputs > 0 {
             audioEngine.inputNode.removeTap(onBus: 0)
         }
@@ -297,12 +280,6 @@ struct ContentView: View {
     //
     
     
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
 }
 
 
@@ -321,5 +298,14 @@ func simpleBigHaptic() {
     generator.notificationOccurred(.error)
 }
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
+
+
+//
 
