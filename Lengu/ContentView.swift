@@ -67,18 +67,16 @@ struct ContentView: View {
     
     
     var captureButton: some View {
-        Button(action: {
-            
-        }, label: {
-            Circle()
-                .foregroundColor(.white)
-                .frame(width: 80, height: 80, alignment: .center)
-                .overlay(
-                    Circle()
-                        .stroke(Color.black.opacity(0.8), lineWidth: 2)
-                        .frame(width: 65, height: 65, alignment: .center)
-                )
-        })
+        Rectangle()
+            .foregroundColor(Color.gray.opacity(0.4))
+            .frame(width: 120, height: 60, alignment: .center)
+            .cornerRadius(5)
+            .overlay(
+                HStack {
+                    Text("Available: \n 🇬🇧 → 🇪🇸")
+                        .foregroundColor(.white)
+                }
+            )
     }
     
     
@@ -88,8 +86,8 @@ struct ContentView: View {
             model.flipCamera()
         }, label: {
             Circle()
-                .foregroundColor(Color.gray.opacity(0.2))
-                .frame(width: 45, height: 45, alignment: .center)
+                .foregroundColor(Color.blue.opacity(0.7))
+                .frame(width: 50, height: 50, alignment: .center)
                 .overlay(
                     Image(systemName: "camera.rotate.fill")
                         .foregroundColor(.white))
@@ -99,7 +97,7 @@ struct ContentView: View {
     var body: some View {
         GeometryReader { reader in
             ZStack {
-                Color.yellow.edgesIgnoringSafeArea(.all)
+                Color.green.opacity(0.9).edgesIgnoringSafeArea(.all)
                 
                 VStack {
                     
@@ -107,12 +105,13 @@ struct ContentView: View {
                         transcription = ""
                     }, label: {
                         Rectangle()
-                            .foregroundColor(Color.gray.opacity(0.2))
+                            .foregroundColor(.blue)
                             .frame(width: 120, height: 45, alignment: .center)
                             .cornerRadius(5)
                             .overlay(
                                 HStack {
                                     Text("Clear text")
+                                        .foregroundColor(.white)
                                     Image(systemName: "trash.fill")
                                         .foregroundColor(.white)
                                 }
@@ -139,13 +138,14 @@ struct ContentView: View {
                         }
                     }, label: {
                         Rectangle()
-                            .foregroundColor(Color.gray.opacity(0.2))
+                            .foregroundColor(.blue)
                             .frame(width: 160, height: 45, alignment: .center)
                             .cornerRadius(5)
                             .overlay(
                                 HStack {
                                     
                                     Text(isRecording ? "Press to finish" : "Press to start")
+                                        .foregroundColor(.white)
                                     Image(systemName: "person.wave.2.fill")
                                         .foregroundColor(.white)
                                     
@@ -220,7 +220,7 @@ struct ContentView: View {
         if available {
             print("Available")
         } else {
-            print("Available")
+            print("Not available")
         }
     }
     
