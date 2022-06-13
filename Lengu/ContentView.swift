@@ -66,7 +66,7 @@ struct ContentView: View {
     
     
     
-    var captureButton: some View {
+    var languagesLabel: some View {
         Rectangle()
             .foregroundColor(Color.gray.opacity(0.4))
             .frame(width: 120, height: 60, alignment: .center)
@@ -105,7 +105,7 @@ struct ContentView: View {
                         transcription = ""
                     }, label: {
                         Rectangle()
-                            .foregroundColor(.blue)
+                            .foregroundColor(Color.blue.opacity(0.9))
                             .frame(width: 120, height: 45, alignment: .center)
                             .cornerRadius(5)
                             .overlay(
@@ -138,7 +138,7 @@ struct ContentView: View {
                         }
                     }, label: {
                         Rectangle()
-                            .foregroundColor(.blue)
+                            .foregroundColor(Color.blue.opacity(0.9))
                             .frame(width: 160, height: 45, alignment: .center)
                             .cornerRadius(5)
                             .overlay(
@@ -197,7 +197,7 @@ struct ContentView: View {
                         
                         Spacer()
                         
-                        captureButton
+                        languagesLabel
                         
                         Spacer()
 
