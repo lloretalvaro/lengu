@@ -123,13 +123,13 @@ struct ContentView: View {
                         Task
                         {
                             isRecording.toggle()
-                            if isRecording{
+                            if isRecording {
                                 simpleEndHaptic()
-                                startSpeechRecognization()
+                                startSpeechRecognition()
                                 
                             }else{
                                 simpleBigHaptic()
-                                cancelSpeechRecognization()
+                                cancelSpeechRecognition()
                             }
                         }
                     }, label: {
@@ -203,6 +203,7 @@ struct ContentView: View {
                     }
                     .padding(.horizontal, 20)
                 }
+                
             }.onAppear{requestPermission()}
         }
     }
@@ -227,7 +228,7 @@ struct ContentView: View {
     }
     
 
-    func startSpeechRecognization(){
+    func startSpeechRecognition(){
         let node = audioEngine.inputNode
         let recordingFormat = node.outputFormat(forBus: 0)
         
@@ -242,16 +243,16 @@ struct ContentView: View {
             errorMessage = "Error starting the audio engine."
         }
         
-        guard let myRecognization = SFSpeechRecognizer() else {
+        guard let mySpeechRecognizer = SFSpeechRecognizer() else {
             errorMessage = "Recognition is not allowed on your local."
             return
         }
         
-        if !myRecognization.isAvailable {
+        if !mySpeechRecognizer.isAvailable {
             errorMessage = "Recognition is not available right now, Please try again after some time."
         }
         
-        task = myRecognization.recognitionTask(with: request) { (response, error) in
+        task = mySpeechRecognizer.recognitionTask(with: request) { (response, error) in
             guard let response = response else {
                 if error != nil {
                     errorMessage = "For this functionality to work, you need to provide permission in your settings."
@@ -265,7 +266,7 @@ struct ContentView: View {
         }
     }
     
-    func cancelSpeechRecognization() {
+    func cancelSpeechRecognition() {
         task?.finish()
         task?.cancel()
         task = nil
