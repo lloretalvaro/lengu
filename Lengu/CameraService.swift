@@ -174,10 +174,10 @@ public class CameraService {
             var defaultVideoDevice: AVCaptureDevice?
             
             if let backCameraDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back) {
-                // If a rear dual camera is not available, default to the rear wide angle camera.
+                
                 defaultVideoDevice = backCameraDevice
             } else if let frontCameraDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front) {
-                // If the rear wide angle camera isn't available, default to the front wide angle camera.
+         
                 defaultVideoDevice = frontCameraDevice
             }
             

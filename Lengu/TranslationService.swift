@@ -52,7 +52,6 @@ func makeTranslationRequest(text: String) -> String {
         
         do {
             let responseJSON = try JSONDecoder().decode([Translation].self, from: data)
-            print("INSIDE: \(responseJSON[0].translations[0].text)")
             translationResult = "\(responseJSON[0].translations[0].text)"
             
         }catch {

@@ -12,13 +12,9 @@ import Speech
 
 final class CameraModel: ObservableObject {
     private let service = CameraService()
-    
     @Published var showAlertError = false
-    
     var alertError: AlertError!
-    
     var session: AVCaptureSession
-    
     private var subscriptions = Set<AnyCancellable>()
     
     init() {
@@ -45,14 +41,12 @@ final class CameraModel: ObservableObject {
         service.set(zoom: factor)
     }
     
-   
 }
 
 struct ContentView: View {
     @StateObject var model = CameraModel()
     
     @State var currentZoomFactor: CGFloat = 1.0
-    
     
     //
     @State private var isRecording = false
@@ -63,8 +57,6 @@ struct ContentView: View {
     @State private var audioEngine = AVAudioEngine()
     @State private var request = SFSpeechAudioBufferRecognitionRequest()
     //
-    
-    
     
     var languagesLabel: some View {
         Rectangle()
@@ -79,8 +71,7 @@ struct ContentView: View {
             )
     }
     
-    
-    
+
     var flipCameraButton: some View {
         Button(action: {
             model.flipCamera()
@@ -177,12 +168,10 @@ struct ContentView: View {
                             }))
                         })
                         .overlay(
-                            //Parece que lo que sea que ponga encima del Overlay
-                            //  se pondra por encima de la vista de la camara
-                           
+                            //Al poner las transcripciones traducidas en el overlay
+                            // se pondrá por encima de la vista de la cámara.
                              Text(transcription)
                                  .padding()
-                                 
                         )
                         .animation(.easeInOut)
                     
@@ -195,10 +184,9 @@ struct ContentView: View {
                         
                         Spacer()
 
-                        
                         flipCameraButton
+                        
                         Spacer()
-
                         
                     }
                     .padding(.horizontal, 20)
@@ -244,12 +232,12 @@ struct ContentView: View {
         }
         
         guard let mySpeechRecognizer = SFSpeechRecognizer() else {
-            errorMessage = "Recognition is not allowed on your local."
+            errorMessage = "Recognition is not allowed on your locale."
             return
         }
         
         if !mySpeechRecognizer.isAvailable {
-            errorMessage = "Recognition is not available right now, Please try again after some time."
+            errorMessage = "Recognition is not available right now. Please try again after some time."
         }
         
         task = mySpeechRecognizer.recognitionTask(with: request) { (response, error) in
